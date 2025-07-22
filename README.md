@@ -20,7 +20,7 @@ allowing stable press/release detection without delays or interrupts.
 
 ### Option 1: Install via ZIP
 
-1. [Download the ZIP](https://github.com/YOUR_USERNAME/dBounce/releases)
+1. [Download the ZIP](https://github.com/radi8/dBounce/releases)
 2. In Arduino IDE:  
    `Sketch > Include Library > Add .ZIP Library...`
 
