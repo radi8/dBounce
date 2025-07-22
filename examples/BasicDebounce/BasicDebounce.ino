@@ -1,7 +1,7 @@
 #include "dBounce.h"
 
 const uint8_t buttonPins[] = {2, 3, 4};
-dBounce<sizeof(buttonPins)> debouncer(buttonPins, 1000);
+dBounce<sizeof(buttonPins)> debouncer(buttonPins, 1000); // 1ms polling
 
 void setup() {
   Serial.begin(115200);
