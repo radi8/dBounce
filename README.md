@@ -50,7 +50,7 @@ void loop() {
 
 ## 📚 Documentation
 
-- [Detailed Technical Explanation (Wiki)](https://github.com/YOUR_USERNAME/dBounce/wiki)
+- [Detailed Technical Explanation (Wiki)](https://github.com/radi8/dBounce/wiki)
 - `DETAILED_DOC.md` also included in the repo
 
 ## 📜 License
