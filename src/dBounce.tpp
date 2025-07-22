@@ -3,7 +3,7 @@
 
 template <size_t NumButtons>
 dBounce<NumButtons>::dBounce(const uint8_t (&pins)[NumButtons], uint16_t pollIntervalMicros)
-    : pollInterval_(pollIntervalMicros) {
+    : pollInterval_(pollIntervalMicros), lastPollTime_(micros() - pollIntervalMicros) {
     for (size_t i = 0; i < NumButtons; ++i) {
         pins_[i] = pins[i];
         pinMode(pins_[i], INPUT_PULLUP);
