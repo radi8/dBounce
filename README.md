@@ -1,5 +1,8 @@
 # dBounce – Non-blocking Debounce Library for Arduino
 
+- [Detailed Technical Explanation (Wiki)](https://github.com/radi8/dBounce/wiki)
+- `DETAILED_DOC.md` also included in the repo
+
 **dBounce** is a non-blocking, highly noise-resistant debounce library for Arduino-compatible devices.  
 It handles very noisy mechanical switches and rotary encoders using a shift-register-based state tracker,  
 allowing stable press/release detection without delays or interrupts.
@@ -7,26 +10,30 @@ allowing stable press/release detection without delays or interrupts.
 ## 🚀 Features
 
 - Non-blocking design using `micros()`-based timing
-- Tolerant to extreme switch bounce and glitches
+- Handles continuous and extreme bounce without misfires
 - Suitable for:
   - Pushbuttons
   - Rotary encoders
   - Morse keys
+- Fully non-blocking (no `delay()` or interrupts)
+- Supports rotary encoders with direction detection
+- Simple polling model with `update()` and `getBtnState()`
+- Built-in timing utility for press duration detection
 - Detects short and long presses
 - Configurable polling interval
 - Supports multiple buttons
 
-## 📦 Installation
+## 🚀 Installation
 
-### Option 1: Install via ZIP
+1. Download or clone the repository
+2. Place the `DebounceLib/` folder inside your Arduino `libraries/` directory
+3. Restart the Arduino IDE
 
-1. [Download the ZIP](https://github.com/radi8/dBounce/releases)
-2. In Arduino IDE:  
-   `Sketch > Include Library > Add .ZIP Library...`
+To install manually via zip:
+- Download from the [Releases](https://github.com/radi8/dBounce/releases)
+- In Arduino IDE: `Sketch > Include Library > Add .ZIP Library...`
 
-### Option 2: Manual
-
-Clone or extract to your `~/Arduino/libraries/dBounce/` directory.
+---
 
 ## 📄 Example
 
@@ -56,3 +63,7 @@ void loop() {
 ## 📜 License
 
 MIT © Graeme Jury (ZL2TE)
+
+
+
+
