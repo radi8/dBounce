@@ -1,14 +1,14 @@
-#ifndef DEBOUNCE_H
-#define DEBOUNCE_H
+#ifndef DBounce_H
+#define DBounce_H
 
 #include <Arduino.h>
 
 //#define DEBUG_BOUNCES
 
 template <size_t NumButtons>
-class Debounce {
+class dBounce {
 public:
-    Debounce(const uint8_t (&pins)[NumButtons], uint16_t pollIntervalMicros = 1000);
+    dBounce(const uint8_t (&pins)[NumButtons], uint16_t pollIntervalMicros = 1000);
 
     void update();
     uint8_t getState(uint8_t btnNum) const;
@@ -35,6 +35,7 @@ private:
 #endif
 };
 
-#include "Debounce.tpp"
+#include "dBounce.tpp"
 
-#endif // DEBOUNCE_H
+#endif // DBounce_H
+

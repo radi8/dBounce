@@ -1,8 +1,8 @@
-#ifndef DEBOUNCE_TPP
-#define DEBOUNCE_TPP
+#ifndef DBounce_TPP
+#define DBounce_TPP
 
 template <size_t NumButtons>
-Debounce<NumButtons>::Debounce(const uint8_t (&pins)[NumButtons], uint16_t pollIntervalMicros)
+dBounce<NumButtons>::dBounce(const uint8_t (&pins)[NumButtons], uint16_t pollIntervalMicros)
     : pollInterval_(pollIntervalMicros) {
     for (size_t i = 0; i < NumButtons; ++i) {
         pins_[i] = pins[i];
@@ -13,23 +13,23 @@ Debounce<NumButtons>::Debounce(const uint8_t (&pins)[NumButtons], uint16_t pollI
 }
 
 template <size_t NumButtons>
-void Debounce<NumButtons>::setPollInterval(uint16_t interval) {
+void dBounce<NumButtons>::setPollInterval(uint16_t interval) {
     pollInterval_ = interval;
 }
 
 template <size_t NumButtons>
-void Debounce<NumButtons>::setTimer(uint8_t slot) {
+void dBounce<NumButtons>::setTimer(uint8_t slot) {
     if (slot < NumButtons)
         timers_[slot] = micros();
 }
 
 template <size_t NumButtons>
-uint32_t Debounce<NumButtons>::getTimer(uint8_t slot) const {
+uint32_t dBounce<NumButtons>::getTimer(uint8_t slot) const {
     return (slot < NumButtons) ? micros() - timers_[slot] : 0;
 }
 
 template <size_t NumButtons>
-void Debounce<NumButtons>::update() {
+void dBounce<NumButtons>::update() {
     if ((micros() - lastPollTime_) < pollInterval_)
         return;
     lastPollTime_ = micros();
@@ -56,7 +56,7 @@ void Debounce<NumButtons>::update() {
 }
 
 template <size_t NumButtons>
-uint8_t Debounce<NumButtons>::getState(uint8_t btnNum) const {
+uint8_t dBounce<NumButtons>::getState(uint8_t btnNum) const {
     if (btnNum >= NumButtons) return 0xFF;
 
     if ((state_[btnNum] == 0x0000 || state_[btnNum] == 0xFFFF) && state_[btnNum] == mirror_[btnNum]) {
@@ -68,7 +68,7 @@ uint8_t Debounce<NumButtons>::getState(uint8_t btnNum) const {
 
 #ifdef DEBUG_BOUNCES
 template <size_t NumButtons>
-void Debounce<NumButtons>::printBinary(uint16_t val, int bits) const {
+void dBounce<NumButtons>::printBinary(uint16_t val, int bits) const {
     for (int i = bits - 1; i >= 0; --i) {
         Serial.print((val & (1 << i)) ? '1' : '0');
         if (i % 4 == 0 && i > 0) Serial.print('_');
@@ -76,7 +76,7 @@ void Debounce<NumButtons>::printBinary(uint16_t val, int bits) const {
 }
 
 template <size_t NumButtons>
-void Debounce<NumButtons>::debugDisplay(uint8_t index, bool changed) const {
+void dBounce<NumButtons>::debugDisplay(uint8_t index, bool changed) const {
     Serial.print(F("Btn#"));
     Serial.print(index);
     Serial.print(F(" State: "));
@@ -88,4 +88,5 @@ void Debounce<NumButtons>::debugDisplay(uint8_t index, bool changed) const {
 }
 #endif
 
-#endif // DEBOUNCE_TPP
+#endif // DBounce_TPP
+
