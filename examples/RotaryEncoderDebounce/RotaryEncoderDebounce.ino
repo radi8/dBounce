@@ -6,7 +6,7 @@
   Adapted from code by Graeme Jury ZL2TE, 28 Sep 2022
 */
 
-#include <dBounce.h>
+#include "dBounce.h"
 
 const uint8_t buttons[] = {13, 14, 15, 16, 17, 18}; // Enc1_PB, Enc1_DT, Enc1_CLK, Enc2_PB, Enc2_DT, Enc2_CLK
 dBounce<sizeof(buttons)> Debouncer(buttons, 200); // 200 µs polling
